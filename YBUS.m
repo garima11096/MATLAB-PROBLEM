@@ -4,8 +4,7 @@ linedata = linedata6();
 fb = linedata(:,1);     
 tb = linedata(:,2);     
 r = linedata(:,3);      
-x = linedata(:,4);      
-b = linedata(:,5);      
+x = linedata(:,4);            
 z = r + i*x;          
 y = 1./z;
 
