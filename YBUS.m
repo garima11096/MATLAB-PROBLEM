@@ -13,5 +13,6 @@ ybus = zeros(n,n);
 
 ybus= -y; 
 for j = 1:1:n
-    ybus(j,j)=  sum(y(j,:))
+    ybus(j,j)=  sum(y(j,:));
 end
+ybus
