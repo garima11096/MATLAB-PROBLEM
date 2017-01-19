@@ -1,15 +1,18 @@
-n= input('Enter number of buses :');
-A = zeros(n);
-[i,j]=meshgrid(1:10,1:10);
-        if i~=j
-            fprintf('Enter the impedance from bus %d to bus %d = ',i,j);
-        else
-            fprintf('Enter the impedance from bus %d to ground = ',i);
-        end
-    A(i,j) = input(' ');    
+function ybus = ybusppg();  
 
-Y = zeros(n);
-Y = -A
-for i = 1:1:n
-    Y(i,i)=  sum(A(i,:));
+linedata = linedata6(); 
+fb = linedata(:,1);     
+tb = linedata(:,2);     
+r = linedata(:,3);      
+x = linedata(:,4);      
+b = linedata(:,5);      
+z = r + i*x;          
+y = 1./z;
+
+n = max(max(fb),max(tb));   
+ybus = zeros(n,n); 
+
+ybus= -y; 
+for j = 1:1:n
+    ybus(j,j)=  sum(y(j,:))
 end
